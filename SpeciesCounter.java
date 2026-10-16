@@ -50,6 +50,16 @@ public class SpeciesCounter {
     public void countSpecies() {
         for (int i = 0; i < speciesData.length; i++) {
             String currentSpecies = speciesData[i];
+            
+            if (currentSpecies != null) {
+                if (currentSpecies.equals(SP_CHINSTRAP)) {
+                    speciesCount[SP_CHINSTRAP_INDEX]++;
+                } else if (currentSpecies.equals(SP_GENTOO)) {
+                    speciesCount[SP_GENTOO_INDEX]++;
+                } else if (currentSpecies.equals(SP_ADELIE)) {
+                    speciesCount[SP_ADELIE_INDEX]++;
+                }
+            }
         }
     }
 
