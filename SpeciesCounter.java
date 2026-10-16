@@ -1,6 +1,6 @@
 // SpeciesCounter.java
-//
-// 
+// Brandon Schamberg
+// 10/15/2026
 // Encapsulates species data and related operations
 
 public class SpeciesCounter {
@@ -18,7 +18,8 @@ public class SpeciesCounter {
     private static final int SP_ADELIE_INDEX = 2;
 
     // Private fields for encapsulation
-
+    private String[] speciesData;
+    private int[] speciesCount;
 
     // Default constructor
     public SpeciesCounter() {
@@ -28,26 +29,34 @@ public class SpeciesCounter {
 
     // Reads species data from CSV file
     public void readSpeciesData() {
-
+        speciesData = CSVReader.readFile(FILE_NAME, 1);
     }
 
     // Initializes the species count array
     public void initializeSpeciesCount() {
-
+        speciesCount = new int[NUM_SPECIES]; 
     }
 
     // Checks if the species data is empty
     public boolean isDataEmpty() {
-        return false;
+        if (speciesData == null || speciesData.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Counts occurrences of each species
     public void countSpecies() {
-
+        for (int i = 0; i < speciesData.length; i++) {
+            String currentSpecies = speciesData[i];
+        }
     }
 
     // Prints the species count
     public void printSpeciesCount() {
-
+        System.out.println(SP_CHINSTRAP + ": " + speciesCount[SP_CHINSTRAP_INDEX]);
+        System.out.println(SP_GENTOO + ": " + speciesCount[SP_GENTOO_INDEX]);
+        System.out.println(SP_ADELIE + ": " + speciesCount[SP_ADELIE_INDEX]);
     }
 }
